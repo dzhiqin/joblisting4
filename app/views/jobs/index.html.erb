@@ -1,0 +1,23 @@
+<div class="pull-right">
+  <%=link_to('order',new_job_path,:class=>"btn btn-success")%>
+</div>
+<table class="table table-boldered">
+  <thead>
+    <tr>
+      <th>招聘岗位</th>
+      <th>最低工资</th>
+      <th>最高工资</th>
+      <th>发布时间</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td><%=link_to('job.title',job_path(job))%></td>
+        <td><%=link_to('job.wage_lower_bound',job_path(job))%></td>
+        <td><%=link_to('job.wage_upper_bound',job_path(job))%></td>
+        <td><%=link_to('job.created_at',job_path(job))%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
