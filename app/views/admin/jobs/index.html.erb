@@ -1,0 +1,30 @@
+<div class="pull-right">
+  <a class="btn btn-success" href=jobs/new>
+    Add a job
+  </a>
+</div>
+<br />
+<br />
+<table class="table table-boldered">
+  <thead>
+    <tr>
+      <th>招聘岗位</th>
+      <th>招聘联系人</th>
+      <th>发布时间</th>
+      <th>管理</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td><%=link_to(job.title,admin_job_path(job))%></td>
+        <td><%=job.contact_email%></td>
+        <td><%=job.created_at%></td>
+        <td>
+          <%=link_to('Edit',edit_admin_job_path(job))%> |
+          <%=link_to('Delete',admin_job_path(job),:method=>:delete,:data=>{:confirm=>"Are you sure?"})%>
+        </td>
+      </tr>
+    <% end %>
+  </body>
+</table>

@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require bootstrap/alert
+//= require bootstrap/modal
 //= require_tree .

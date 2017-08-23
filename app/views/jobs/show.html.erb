@@ -1,7 +1,9 @@
 <h1><%=@job.title%></h1>
-<p>
+  <label>description:</label>
   <%=simple_format(@job.description)%>
-  <%=simple_format(@job.wage_lower_bound)%>
-  <%=simple_format(@job.wage_upper_bound)%>
-  <%=simple_format(@job.contact_email)%>
-</p>
+  <%=@job.wage_lower_bound%> <br />
+  <%=@job.wage_upper_bound%><br />
+  <%=@job.contact_email%><br />
+  <%=@job.created_at%><br />
+  <%=@job.wage_lower_bound%><br />
+  <%=link_to('Back',:back,:class=>"btn btn-warning")%>
