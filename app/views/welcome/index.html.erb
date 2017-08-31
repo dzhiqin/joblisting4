@@ -53,7 +53,9 @@
   <br>
   <div class="row">
     <div class="col-sm-4">
-      <p class="text-center"><strong>Web开发</strong></p><br>
+      <p class="text-center"><strong>
+        <%=link_to('Web开发',jobs_path(:c=>"web-developer"))%>
+      </strong></p><br>
       <a href="#demo" data-toggle="collapse">
         <img src="<%=image_url 'web-developer.png'%>" class="img-circle person" alt="Random Name" width="255" height="255">
       </a>
@@ -63,7 +65,9 @@
       </div>
     </div>
     <div class="col-sm-4">
-      <p class="text-center"><strong>移动开发</strong></p><br>
+      <p class="text-center"><strong>
+        <%=link_to('移动开发',jobs_path(:c=>'phone-developer'))%>
+      </strong></p><br>
       <a href="#demo2" data-toggle="collapse">
         <img src="<%=image_url 'phone-developer.jpg'%>" class="img-circle person" alt="Random Name" width="255" height="255">
       </a>
@@ -73,7 +77,9 @@
       </div>
     </div>
     <div class="col-sm-4">
-      <p class="text-center"><strong>全栈工程师</strong></p><br>
+      <p class="text-center"><strong>
+        <%=link_to('全栈工程师',jobs_path(:c=>'fullstack-developer'))%>
+      </strong></p><br>
       <a href="#demo3" data-toggle="collapse">
         <img src="<%=image_url 'fullstack-developer'%>" class="img-circle person" alt="Random Name" width="255" height="255">
       </a>
@@ -127,16 +133,44 @@
 
   <div class="tab-content">
     <div id="web-developer" class="tab-pane fade in active">
-      <h2>Mike Ross, Manager</h2>
-      <p>Man, we've been on the road for some time now. Looking forward to lorem ipsum.</p>
+      <table class="table table-boldered">
+        <% @jobs_temp=@jobs.where(job_type: "web-developer")%>
+        <% @jobs_temp.each do |job| %>
+          <tr>
+            <td><%=link_to(job.title,job_path(job))%></td>
+            <td><%=job.wage_lower_bound%></td>
+            <td><%=job.wage_upper_bound%></td>
+            <td><%=job.created_at%></td>
+          </tr>
+        <% end %>
+      </table>
+
     </div>
     <div id="phone-developer" class="tab-pane fade">
-      <h2>Chandler Bing, Guitarist</h2>
-      <p>Always a pleasure people! Hope you enjoyed it as much as I did. Could I BE.. any more pleased?</p>
+      <table class="table table-boldered">
+        <% @jobs_temp=@jobs.where(job_type: "phone-developer")%>
+        <% @jobs_temp.each do |job| %>
+          <tr>
+            <td><%=link_to(job.title,job_path(job))%></td>
+            <td><%=job.wage_lower_bound%></td>
+            <td><%=job.wage_upper_bound%></td>
+            <td><%=job.created_at%></td>
+          </tr>
+        <% end %>
+      </table>
     </div>
     <div id="fullstack-developer" class="tab-pane fade">
-      <h2>Peter Griffin, Bass player</h2>
-      <p>I mean, sometimes I enjoy the show, but other times I enjoy other things.</p>
+      <table class="table table-boldered">
+        <% @jobs_temp=@jobs.where(job_type: "fullstack-developer")%>
+        <% @jobs_temp.each do |job| %>
+          <tr>
+            <td><%=link_to(job.title,job_path(job))%></td>
+            <td><%=job.wage_lower_bound%></td>
+            <td><%=job.wage_upper_bound%></td>
+            <td><%=job.created_at%></td>
+          </tr>
+        <% end %>
+      </table>
     </div>
   </div>
 </div>

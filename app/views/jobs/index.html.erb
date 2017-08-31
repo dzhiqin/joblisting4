@@ -1,5 +1,12 @@
-<div class="pull-right">
-  <%=link_to('order',new_job_path,:class=>"btn btn-success")%>
+<div class="dropdown clearfix pull-right">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdown-order"
+    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">排序<span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-order">
+    <li><%=link_to("按照最低工资排序",jobs_path(:c=>@category,:order=>"by_lower_bound"))%></li>
+    <li><%=link_to("按照最高工资排序",jobs_path(:c=>@category,:order=>"by_upper_bound"))%></li>
+    <li><%=link_to("按照发布时间排序",jobs_path(:c=>@category) )%></li>
+  </ul>
 </div>
 <table class="table table-boldered">
   <thead>

@@ -1,7 +1,20 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!,only:[:new,:create,:edit,:update,:destroy]
   def index
-    @jobs=Job.where(:is_hidden=>false)
+    # @jobs=Job.where(:is_hidden=>false)
+    @jobs=Job.published
+    if params[:c].present?
+      @category=params[:c]
+      @jobs=@jobs.where(job_type:@category)
+    end
+    @jobs=case params[:order]
+  when 'by_lower_bound'
+    @jobs.order('wage_lower_bound DESC')
+  when 'by_upper_bound'
+    @jobs.order('wage_upper_bound DESC')
+  else
+    @jobs.recent
+  end
   end
   def new
     @job=Job.new
