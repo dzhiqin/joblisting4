@@ -1,9 +1,13 @@
 <h1><%=@job.title%></h1>
-  <label>description:</label>
-  <%=simple_format(@job.description)%>
-  <%=@job.wage_lower_bound%> <br />
-  <%=@job.wage_upper_bound%><br />
-  <%=@job.contact_email%><br />
-  <%=@job.created_at%><br />
-  <%=@job.wage_lower_bound%><br />
-  <%=link_to('Back',:back,:class=>"btn btn-warning")%>
+<label>description:</label>
+<%=simple_format(@job.description)%>
+<%=@job.wage_lower_bound%> <br />
+<%=@job.wage_upper_bound%><br />
+<%=@job.contact_email%><br />
+<%=@job.created_at%><br />
+<%=@job.wage_lower_bound%><br />
+<%=link_to('Back',:back,:class=>"btn btn-warning")%>
+<div class="text-center">
+  <%=link_to('投递简历',new_job_resume_path(@job),:style=>"font-size:30px;
+    text-decoration:underline;")%>
+</div>
