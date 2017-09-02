@@ -1,7 +1,5 @@
 <div class="pull-right">
-  <a class="btn btn-success" href=jobs/new>
-    Add a job
-  </a>
+  <%=link_to('Add a job',new_admin_job_path,:class=>"btn btn-success")%>
 </div>
 <br />
 <br />
@@ -48,3 +46,6 @@
     <% end %>
   </body>
 </table>
+<div class="text-center">
+  <%=will_paginate @jobs %>
+</div>
